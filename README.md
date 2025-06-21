@@ -7,12 +7,21 @@ A comprehensive, modular quiz application that tests knowledge about mushroom cu
 The application is organized into separate modules for better maintainability:
 
 ```
+## Terminal Version
 mushroom_quiz_app.py     # Main application entry point
 quiz_ui.py              # User interface and display functions
 quiz_questions.py       # Question database and utilities
 quiz_logic.py           # Core quiz game logic and flow
 quiz_timer.py           # Timed input functionality
-README_quiz.md          # This documentation file
+
+## Web Version
+web/
+├── index.html          # Main HTML file
+├── styles.css          # CSS styling
+├── questions.js        # Question database (JavaScript)
+└── quiz.js             # Main quiz logic (JavaScript)
+
+README.md               # This documentation file
 ```
 
 ## 🔧 Module Descriptions
@@ -59,9 +68,35 @@ README_quiz.md          # This documentation file
 
 ## 🚀 Running the Application
 
+### Terminal Version
 ```bash
 python mushroom_quiz_app.py
 ```
+
+### Web Version
+1. **Local Development**:
+   ```bash
+   cd web
+   python -m http.server 8000
+   # Open http://localhost:8000 in your browser
+   ```
+
+2. **Production Deployment**:
+   - Deploy the `web/` folder to any web server
+   - No server-side processing required (static files only)
+   - Compatible with GitHub Pages, Netlify, Vercel, etc.
+
+## 🌐 Web Version Features
+
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Modern UI**: Beautiful gradient backgrounds and smooth animations
+- **Interactive Elements**: Hover effects and visual feedback
+- **Progress Tracking**: Visual progress bar and real-time scoring
+- **Timer Visualization**: Circular countdown timer with color coding
+- **Keyboard Support**: Use number keys (1-4) to select answers
+- **Social Sharing**: Share results with friends
+- **Accessibility**: Semantic HTML and keyboard navigation
+- **Cross-browser Compatible**: Works in all modern browsers
 
 ## 📊 Question Database Stats
 
