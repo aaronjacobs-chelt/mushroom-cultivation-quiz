@@ -1,0 +1,15 @@
+# Mushroom Cultivation Quiz - Python Dependencies
+# This project uses only Python standard library modules
+
+# No external dependencies required!
+# The following standard library modules are used:
+# - random (question randomization)
+# - time (delays and timing)
+# - os (screen clearing)
+# - threading (timed input)
+
+# For development/testing (optional):
+# pytest>=7.0.0
+# black>=22.0.0
+# flake8>=4.0.0
+
