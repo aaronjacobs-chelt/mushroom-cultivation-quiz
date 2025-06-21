@@ -1,7 +1,60 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-Quiz Timer Module
-Handles timed input functionality for quiz questions
+⏰ Quiz Timer Module
+
+Handles timed input functionality with visual countdown for quiz questions.
+
+File: quiz_timer.py
+Author: Aaron J
+Version: 2.0.0
+Created: 2025-06-21
+Last Modified: 2025-06-21
+
+Description:
+    This module provides timed input functionality for the quiz application,
+    featuring visual countdown displays and thread-based input handling.
+    It supports both timed and untimed input modes with proper timeout
+    management and user feedback.
+
+Classes:
+    TimedInput: Handles timed input with countdown display
+        - Thread-based input collection
+        - Visual countdown with color-coded time remaining
+        - Timeout detection and handling
+        - Answer validation within time constraints
+
+Functions:
+    get_user_input(): Main interface for getting user input (timed or untimed)
+
+Features:
+    - Visual countdown timer with color coding:
+      * Green: >10 seconds remaining
+      * Yellow: 5-10 seconds remaining  
+      * Red: <5 seconds remaining
+    - Thread-safe input handling
+    - Graceful timeout management
+    - Answer validation (numeric range checking)
+    - Support for both timed and untimed modes
+    - Real-time countdown display
+
+Timer Modes:
+    - Relaxed Mode: No time limit
+    - Timed Mode: 30 seconds per question
+    - Speed Mode: 15 seconds per question
+
+Dependencies:
+    - threading: For non-blocking input collection
+    - time: For countdown timing and delays
+    - quiz_ui: Color constants for countdown display
+
+Usage:
+    from quiz_timer import get_user_input
+    answer = get_user_input("Your choice: ", 4, 30)  # 30 second timeout
+    answer = get_user_input("Your choice: ", 4)      # No timeout
+
+License:
+    MIT License - See LICENSE file for details
 """
 
 import threading

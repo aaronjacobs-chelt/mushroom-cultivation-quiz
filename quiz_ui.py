@@ -1,7 +1,82 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-Quiz UI Module
-Contains all user interface elements, colors, and display functions
+🎨 Quiz User Interface Module
+
+Comprehensive user interface elements, colors, and display functions for
+the Mushroom Cultivation Quiz application.
+
+File: quiz_ui.py
+Author: Aaron J
+Version: 2.0.0
+Created: 2025-06-21
+Last Modified: 2025-06-21
+
+Description:
+    This module provides all user interface functionality for the mushroom
+    cultivation quiz, including colorful terminal output, formatted displays,
+    menu systems, and interactive elements. It uses ANSI color codes to
+    create an engaging visual experience.
+
+Classes:
+    Colors: ANSI color code constants for terminal formatting
+        - Standard colors (RED, GREEN, BLUE, YELLOW, etc.)
+        - Style modifiers (BOLD, UNDERLINE)
+        - Special formatting (HEADER, WARNING, FAIL, etc.)
+
+Functions:
+    Screen Management:
+        - clear_screen(): Cross-platform screen clearing
+        - print_header(): Displays ASCII art header
+    
+    Menu Systems:
+        - display_main_menu(): Shows main application menu
+        - get_difficulty_level(): Interactive difficulty selection
+        - get_number_of_questions(): Quiz length selection
+        - get_timer_mode(): Timer mode selection
+        - display_about(): Application information
+    
+    Quiz Display:
+        - display_question(): Formatted question presentation
+        - display_result(): Answer result with explanation
+        - display_final_score(): Comprehensive score report with rankings
+        - display_study_recommendations(): Personalized learning suggestions
+
+Features:
+    - Colorful ANSI terminal interface
+    - ASCII art mushroom header
+    - Interactive menu systems with validation
+    - Visual question numbering and progress
+    - Color-coded difficulty indicators
+    - Emoji-enhanced user experience
+    - Personalized performance rankings:
+      * 90%+: 🌟 MUSHROOM MASTER
+      * 70%+: 🍄 FUNGI EXPERT  
+      * 50%+: 🌱 GROWING CULTIVATOR
+      * <50%: 🔰 SPORE BEGINNER
+    - Topic-specific study recommendations
+    - Cross-platform compatibility (Windows/Unix)
+
+Color Scheme:
+    - Cyan: Headers and titles
+    - Green: Success and beginner elements
+    - Yellow: Warnings and intermediate elements
+    - Red: Errors and advanced elements
+    - Purple: Explanations and special content
+    - Blue: Questions and information
+
+Dependencies:
+    - os: For cross-platform screen clearing
+    - time: For display timing (imported but may be used by callers)
+
+Usage:
+    from quiz_ui import clear_screen, print_header, Colors
+    clear_screen()
+    print_header()
+    print(f"{Colors.GREEN}Success!{Colors.ENDC}")
+
+License:
+    MIT License - See LICENSE file for details
 """
 
 import os

@@ -1,7 +1,53 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-Quiz Logic Module
-Contains the core quiz functionality and game logic
+🎯 Quiz Logic Module
+
+Core quiz functionality and game logic for the Mushroom Cultivation Quiz.
+
+File: quiz_logic.py
+Author: Aaron J
+Version: 2.0.0
+Created: 2025-06-21
+Last Modified: 2025-06-21
+
+Description:
+    This module contains the QuizGame class and related functions that handle
+    the core quiz logic, including question selection, answer processing,
+    scoring, and result analysis. It serves as the central coordinator between
+    the UI, timer, and question database modules.
+
+Classes:
+    QuizGame: Main quiz game class that manages quiz flow and scoring
+        - Handles question preparation and randomization
+        - Processes user answers and maintains score
+        - Tracks wrong topics for study recommendations
+        - Coordinates with UI and timer modules
+
+Functions:
+    create_quiz(): Factory function to create and run a quiz instance
+
+Features:
+    - Intelligent question selection based on difficulty
+    - Random question and option shuffling for variety
+    - Answer validation and timeout handling
+    - Topic-based performance tracking
+    - Integration with timed and untimed input modes
+    - Comprehensive result reporting
+
+Dependencies:
+    - random: For question and option shuffling
+    - time: For timing delays and user experience
+    - quiz_questions: Question database and filtering functions
+    - quiz_ui: Display functions and color constants
+    - quiz_timer: Timed input functionality
+
+Usage:
+    from quiz_logic import create_quiz
+    score, total = create_quiz("intermediate", 10, 30)
+
+License:
+    MIT License - See LICENSE file for details
 """
 
 import random

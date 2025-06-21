@@ -1,10 +1,49 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 🍄 Mushroom Cultivation Quiz Application 🍄
-Main application file that coordinates all modules
 
-This modular quiz application tests knowledge about mushroom cultivation
-including growing techniques, varieties, substrates, and terminology.
+Main application entry point that coordinates all quiz modules to provide
+a comprehensive educational experience for mushroom cultivation enthusiasts.
+
+File: mushroom_quiz_app.py
+Author: Aaron J
+Version: 2.0.0
+Created: 2025-06-21
+Last Modified: 2025-06-21
+
+Description:
+    This is the main entry point for the modular mushroom cultivation quiz
+    application. It coordinates user interface, quiz logic, timer functionality,
+    and question database modules to deliver an interactive learning experience.
+    
+    The application supports multiple difficulty levels, timed and untimed modes,
+    and provides personalized study recommendations based on performance.
+
+Features:
+    - Interactive main menu system
+    - Multiple difficulty levels (Beginner, Intermediate, Advanced, Mixed)
+    - Flexible quiz lengths (5, 10, or 20 questions)
+    - Optional timer modes (Relaxed, Timed 30s, Speed 15s)
+    - Comprehensive question database with 111+ questions
+    - Personalized study recommendations
+    - Colorful terminal interface with emojis
+    - Session management and replay functionality
+
+Usage:
+    python mushroom_quiz_app.py
+
+Dependencies:
+    - quiz_ui: User interface and display functions
+    - quiz_logic: Core quiz game logic and flow
+    - quiz_questions: Question database (imported via quiz_logic)
+    - quiz_timer: Timed input functionality (imported via quiz_logic)
+
+License:
+    MIT License - See LICENSE file for details
+    
+Repository:
+    https://github.com/aaronj/mushroom-cultivation-quiz
 """
 
 from quiz_ui import (clear_screen, print_header, display_main_menu, display_about,
