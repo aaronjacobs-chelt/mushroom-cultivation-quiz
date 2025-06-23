@@ -81,6 +81,11 @@ web/                         # Web version
 ├── questions.js             # Question database (JavaScript)
 └── quiz.js                  # Main quiz logic (JavaScript)
 
+retro/                       # Retro versions (New!)
+├── README.md                # Retro collection documentation
+├── mushroom_quiz_spectrum.bas # ZX Spectrum BASIC version
+└── mushroom_quiz_c64.bas    # Commodore 64 BASIC version
+
 # Package files
 setup.py                     # Package installation script
 requirements.txt             # Dependencies
@@ -446,6 +451,16 @@ python mushroom_quiz_app_legacy.py
 cd web
 python -m http.server 8000
 # Open http://localhost:8000
+```
+
+### **Retro Version Development (New!)**
+```bash
+# ZX Spectrum BASIC version
+cd retro
+# Load mushroom_quiz_spectrum.bas in ZX Spectrum emulator
+
+# Commodore 64 BASIC version  
+# Load mushroom_quiz_c64.bas in C64 emulator
 ```
 
 ## 📄 License
