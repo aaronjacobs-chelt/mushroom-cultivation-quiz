@@ -1,8 +1,41 @@
 # 🍄 Mushroom Cultivation Quiz Application
 
-A comprehensive, modular quiz application that tests knowledge about mushroom cultivation techniques, varieties, substrates, terminology, and medicinal properties. This educational tool provides an interactive learning experience for mushroom cultivation enthusiasts at all skill levels.
+A comprehensive, professional Python package that tests knowledge about mushroom cultivation techniques, varieties, substrates, terminology, and medicinal properties. This educational tool provides an interactive learning experience for mushroom cultivation enthusiasts at all skill levels.
 
-## ✨ Latest Updates (v2.0.0)
+## 🚀 New in Version 2.0.1 (Modular Architecture)
+
+### **🏗️ Professional Package Structure**
+- **📦 Installable Python Package**: `pip install -e .` for system-wide access
+- **🎯 Modular Design**: Clean separation of concerns (core, ui, data, utils)
+- **📚 Comprehensive Documentation**: Professional headers and API docs in every file
+- **🧪 Full Test Coverage**: Unit tests for all major components
+- **🔧 Multiple Entry Points**: 
+  - `python -m mushroom_quiz` (recommended)
+  - `mushroom-quiz` (after installation)
+  - Legacy compatibility maintained
+
+### **🛠️ Developer Experience**
+- **Clear Module Structure**: `/core`, `/ui`, `/data`, `/utils` organization
+- **Professional Standards**: Type hints, docstrings, version consistency
+- **Easy Extension**: Well-defined interfaces for adding features
+- **IDE Support**: Better code completion and navigation
+- **Test Framework**: `pytest` compatible test suite
+
+### **📋 Installation & Usage**
+```bash
+# Install as development package
+pip install -e .
+
+# Run the application (multiple ways)
+python -m mushroom_quiz          # Recommended
+mushroom-quiz                    # After installation
+python mushroom_quiz_app_legacy.py  # Legacy compatibility
+
+# Run tests
+python -m pytest tests/
+```
+
+## ✨ Previous Updates (v2.0.0)
 
 - **Expanded Question Database**: Now includes **111 questions** (up from 45)
 - **Enhanced Medicinal Mushroom Coverage**: 19 dedicated questions on health benefits
@@ -12,61 +45,90 @@ A comprehensive, modular quiz application that tests knowledge about mushroom cu
 
 ## 📁 Project Structure
 
-The application is organized into separate modules for better maintainability:
-
+### **New Modular Architecture (v2.0.1)**
 ```
-## Terminal Version
-mushroom_quiz_app.py     # Main application entry point (v2.0.0)
-quiz_ui.py              # User interface and display functions
-quiz_questions.py       # Question database (111 questions)
-quiz_logic.py           # Core quiz game logic and flow
-quiz_timer.py           # Timed input functionality
+src/mushroom_quiz/           # Main package directory
+├── __init__.py              # Package initialization and exports
+├── __main__.py              # Entry point for `python -m mushroom_quiz`
+├── app.py                   # Main application coordination
+├── core/                    # Core functionality
+│   ├── __init__.py          # Core module exports
+│   ├── quiz_engine.py       # Quiz game logic and QuizGame class
+│   └── timer.py             # Timed input with visual countdown
+├── ui/                      # User interface modules
+│   ├── __init__.py          # UI module exports
+│   └── terminal_ui.py       # Terminal interface and styling
+├── data/                    # Data management
+│   ├── __init__.py          # Data module exports
+│   ├── question_loader.py   # Question loading abstraction
+│   └── quiz_questions.py    # Question database (111 questions)
+└── utils/                   # Utility functions
+    ├── __init__.py          # Utils module exports
+    └── helpers.py           # Common helper functions
 
-## Web Version
-web/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styling
-├── questions.js        # Question database (JavaScript)
-└── quiz.js             # Main quiz logic (JavaScript)
+tests/                       # Test suite
+├── __init__.py              # Test package initialization
+└── test_question_loader.py  # Unit tests for question loading
 
-## Documentation
-README.md               # This documentation file
-LICENSE                 # MIT License
-docs/                   # Additional documentation
+docs/                        # Documentation
+├── DEVELOPMENT_NOTES.md     # Development notes
+├── VERSIONING.md            # Version history
+└── MODULAR_STRUCTURE.md     # Detailed architecture guide
+
+web/                         # Web version
+├── index.html               # Main HTML file
+├── styles.css               # CSS styling
+├── questions.js             # Question database (JavaScript)
+└── quiz.js                  # Main quiz logic (JavaScript)
+
+# Package files
+setup.py                     # Package installation script
+requirements.txt             # Dependencies
+README.md                    # This documentation
+LICENSE                      # MIT License
+
+# Legacy compatibility
+mushroom_quiz_app.py         # Original entry point (preserved)
+mushroom_quiz_app_legacy.py  # Backward compatibility wrapper
+quiz_ui.py                   # Original UI module (preserved)
+quiz_questions.py            # Original questions (preserved)
+quiz_logic.py                # Original logic (preserved)
+quiz_timer.py                # Original timer (preserved)
 ```
 
 ## 🔧 Module Descriptions
 
-### `mushroom_quiz_app.py` - Main Application
-- Entry point for the application
-- Coordinates all other modules
-- Handles main menu navigation
-- Manages quiz sessions
+### **New Modular Architecture (v2.0.1)**
 
-### `quiz_ui.py` - User Interface
-- ANSI color definitions and styling
-- Screen clearing and header display
-- Menu functions (difficulty, questions, timer)
-- Result display functions
-- Study recommendations
+#### **Core Package (`src/mushroom_quiz/`)**
+- **`__init__.py`**: Package initialization with version info and main export
+- **`__main__.py`**: Entry point for `python -m mushroom_quiz` execution
+- **`app.py`**: Main application coordination and menu flow
 
-### `quiz_questions.py` - Question Database
-- Comprehensive database of 45+ questions
-- Questions organized by difficulty and topic
-- Utility functions for filtering questions
-- Statistics functions for question distribution
+#### **Core Functionality (`src/mushroom_quiz/core/`)**
+- **`quiz_engine.py`**: Contains `QuizGame` class and `create_quiz()` function
+- **`timer.py`**: `TimedInput` class with visual countdown and threading
 
-### `quiz_logic.py` - Core Logic
-- `QuizGame` class that manages quiz flow
-- Question preparation and randomization
-- Score tracking and topic analysis
-- Integration between UI and timer modules
+#### **User Interface (`src/mushroom_quiz/ui/`)**
+- **`terminal_ui.py`**: All UI functions, ANSI colors, menus, and displays
 
-### `quiz_timer.py` - Timer Functionality
-- `TimedInput` class for countdown timers
-- Threaded input handling
-- Visual countdown display
-- Timeout management
+#### **Data Management (`src/mushroom_quiz/data/`)**
+- **`question_loader.py`**: Abstraction layer for question filtering and access
+- **`quiz_questions.py`**: Comprehensive database of 111 questions
+
+#### **Utilities (`src/mushroom_quiz/utils/`)**
+- **`helpers.py`**: Common utility functions (validation, formatting, etc.)
+
+#### **Testing (`tests/`)**
+- **`test_question_loader.py`**: Unit tests for question loading functionality
+
+### **Legacy Files (Preserved for Compatibility)**
+- **`mushroom_quiz_app.py`**: Original main application entry point
+- **`quiz_ui.py`**: Original user interface module
+- **`quiz_questions.py`**: Original question database
+- **`quiz_logic.py`**: Original core logic
+- **`quiz_timer.py`**: Original timer functionality
+- **`mushroom_quiz_app_legacy.py`**: Backward compatibility wrapper
 
 ## 🎮 Features
 
@@ -79,9 +141,27 @@ docs/                   # Additional documentation
 
 ## 🚀 Running the Application
 
-### Terminal Version
+### **New Modular Methods (v2.0.1)**
 ```bash
+# Recommended: Run as Python module
+python -m mushroom_quiz
+
+# After installation: Use console command
+pip install -e .  # Install package
+mushroom-quiz     # Run command
+
+# Development: Import in Python
+from mushroom_quiz import main
+main()
+```
+
+### **Legacy Methods (Preserved)**
+```bash
+# Original entry point
 python mushroom_quiz_app.py
+
+# Legacy wrapper with compatibility note
+python mushroom_quiz_app_legacy.py
 ```
 
 ### Web Version
@@ -142,10 +222,100 @@ python mushroom_quiz_app.py
 - **🌾 Substrates**: Sawdust, straw, coffee grounds, supplements
 - **⏰ Timing**: Harvest timing, spawn storage, flush intervals
 
+## 🧪 Testing (New in v2.0.1)
+
+### **Running Tests**
+```bash
+# Run all tests
+python -m pytest tests/
+
+# Run with verbose output
+python -m pytest tests/ -v
+
+# Run specific test file
+python -m pytest tests/test_question_loader.py
+
+# Run with unittest
+python -m unittest discover tests/
+```
+
+### **Test Coverage**
+- ✅ Question loading and filtering by difficulty
+- ✅ Question counting functionality  
+- ✅ Difficulty level management
+- ✅ Invalid input handling
+- ✅ Module import verification
+
+### **Adding New Tests**
+Create test files in the `tests/` directory following the naming pattern `test_*.py`:
+
+```python
+import unittest
+import sys
+import os
+
+# Add src directory to path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
+from mushroom_quiz.module import function_to_test
+
+class TestClassName(unittest.TestCase):
+    def test_function_name(self):
+        result = function_to_test()
+        self.assertEqual(result, expected_value)
+```
+
+## 🔌 API Reference (New in v2.0.1)
+
+### **Core API**
+```python
+# Main application entry point
+from mushroom_quiz import main
+main()  # Start the interactive quiz
+
+# Direct quiz execution
+from mushroom_quiz.core import create_quiz
+score, total = create_quiz(
+    difficulty="intermediate",  # 'beginner', 'intermediate', 'advanced', 'mixed'
+    num_questions=10,          # 5, 10, or 20
+    timer_seconds=30           # None for no timer, 15 or 30 for timed
+)
+print(f"Score: {score}/{total}")
+```
+
+### **Data API**
+```python
+from mushroom_quiz.data import get_questions_by_difficulty, get_all_questions
+
+# Get questions by difficulty
+beginner_questions = get_questions_by_difficulty('beginner')
+all_questions = get_all_questions()
+
+# Count questions
+from mushroom_quiz.data.question_loader import get_question_count_by_difficulty
+count = get_question_count_by_difficulty('intermediate')
+```
+
+### **Utility API**
+```python
+from mushroom_quiz.utils import validate_input, format_percentage
+
+# Validate user input
+valid_choice = validate_input("3", 1, 4)  # Returns 3 if valid
+
+# Format percentages
+percentage = format_percentage(8, 10)  # Returns "80.0%"
+
+# Get performance level
+from mushroom_quiz.utils.helpers import get_performance_level
+level, emoji, description = get_performance_level(9, 10)
+# Returns ("Expert", "🏆", "Outstanding knowledge!")
+```
+
 ## 🔧 Extending the Application
 
-### Adding New Questions
-Add questions to the `QUESTIONS` list in `quiz_questions.py`:
+### **Adding New Questions (v2.0.1)**
+Add questions to the `QUESTIONS` list in `src/mushroom_quiz/data/quiz_questions.py`:
 
 ```python
 {
@@ -242,14 +412,36 @@ Contributions are welcome! Here's how you can help:
 
 ## 🛠️ Development Setup
 
+### **New Modular Development (v2.0.1)**
 ```bash
 # Clone the repository
-git clone https://github.com/username/mushroom-cultivation-quiz.git
+git clone https://github.com/aaronjacobs-chelt/mushroom-cultivation-quiz.git
 cd mushroom-cultivation-quiz
 
-# Run the terminal version
+# Install in development mode
+pip install -e .
+
+# Run the application
+python -m mushroom_quiz
+
+# Run tests
+python -m pytest tests/
+
+# Check package info
+python -c "import mushroom_quiz; print(f'Version: {mushroom_quiz.__version__}')"
+```
+
+### **Legacy Development**
+```bash
+# Run original terminal version
 python mushroom_quiz_app.py
 
+# Run legacy wrapper
+python mushroom_quiz_app_legacy.py
+```
+
+### **Web Version Development**
+```bash
 # Serve the web version locally
 cd web
 python -m http.server 8000
@@ -272,8 +464,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Aaron J**
 - Created: June 21, 2025
-- Version: 2.0.0
+- Current Version: 2.0.1 (Modular Architecture)
+- Previous Version: 2.0.0 (Expanded Database)
 - Contact: git@aaronemail.xyz
+- Repository: https://github.com/aaronjacobs-chelt/mushroom-cultivation-quiz
 
 ## 🙏 Acknowledgments
 
