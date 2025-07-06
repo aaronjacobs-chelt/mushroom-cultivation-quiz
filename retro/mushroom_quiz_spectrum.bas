@@ -1,5 +1,5 @@
 10 REM ************************************
-20 REM * MUSHROOM CULTIVATION QUIZ v1.0  *
+20 REM * MUSHROOM CULTIVATION QUIZ v1.1  *
 30 REM * ZX SPECTRUM BASIC VERSION       *
 40 REM * BY AARON J - 2025               *
 50 REM ************************************
@@ -42,13 +42,13 @@
 420 IF CHOICE = 4 THEN GOTO 1900
 430 REM
 440 REM SET DIFFICULTY PARAMETERS
-450 IF CHOICE = 1 THEN LET DIFF$ = "BEGINNER": LET QMAX = 5: LET QSTART = 1
-460 IF CHOICE = 2 THEN LET DIFF$ = "INTERMEDIATE": LET QMAX = 8: LET QSTART = 6
-470 IF CHOICE = 3 THEN LET DIFF$ = "ADVANCED": LET QMAX = 5: LET QSTART = 14
+450 IF CHOICE = 1 THEN LET D$ = "BEGINNER": LET QMAX = 5: LET QSTART = 1
+460 IF CHOICE = 2 THEN LET D$ = "INTERMEDIATE": LET QMAX = 8: LET QSTART = 6
+470 IF CHOICE = 3 THEN LET D$ = "ADVANCED": LET QMAX = 5: LET QSTART = 14
 480 REM
 490 REM START QUIZ
 500 CLS
-510 PRINT "STARTING "; DIFF$; " QUIZ"
+510 PRINT "STARTING "; D$; " QUIZ"
 520 PRINT "======================="
 530 PRINT
 540 PRINT "YOU WILL ANSWER "; QMAX; " QUESTIONS"
@@ -87,7 +87,7 @@
 870 REM DISPLAY QUESTION SUBROUTINE
 1000 CLS
 1010 PRINT "QUESTION "; Q - QSTART + 1; " OF "; QMAX
-1020 PRINT "DIFFICULTY: "; DIFF$
+1020 PRINT "DIFFICULTY: "; D$
 1030 PRINT "========================"
 1040 PRINT
 1050 PRINT Q$(Q)
@@ -106,7 +106,12 @@
 1240 REM
 1250 REM CHECK ANSWER SUBROUTINE
 1400 LET TOTAL = TOTAL + 1
-1410 IF USER$ = C$(Q) THEN LET SCORE = SCORE + 1: LET CORRECT = 1 ELSE LET CORRECT = 0
+1410 IF USER$ = C$(Q) THEN GO TO 1413
+1411 LET CORRECT =0
+1412 GO TO 1415
+1413 LET SCORE = SCORE + 1
+1414 LET CORRECT = 1
+1415 REM Continue...
 1420 PRINT
 1430 IF CORRECT = 1 THEN PRINT "CORRECT! WELL DONE!"
 1440 IF CORRECT = 0 THEN PRINT "WRONG! CORRECT ANSWER: "; C$(Q)
@@ -122,7 +127,7 @@
 1900 CLS
 1910 PRINT "THANKS FOR PLAYING!"
 1920 PRINT "HAPPY MUSHROOM GROWING!"
-1930 STOP
+1930 PAUSE 0 : NEW
 1940 REM
 1950 REM ===========================
 1960 REM QUESTION DATA
@@ -147,12 +152,12 @@
 2150 LET E$(2) = "Oyster mushrooms are hardy, fast-growing, and tolerant of varying conditions."
 2160 REM
 2170 LET Q$(3) = "What temperature range is ideal for most mushrooms?"
-2180 LET A$(3,1) = "5-10°C"
-2190 LET A$(3,2) = "15-25°C"
-2200 LET A$(3,3) = "30-40°C"
-2210 LET A$(3,4) = "45-55°C"
-2220 LET C$(3) = "15-25°C"
-2230 LET E$(3) = "Most cultivated mushrooms thrive in moderate temperatures between 15-25°C."
+2180 LET A$(3,1) = "5-10deg C"
+2190 LET A$(3,2) = "15-25deg C"
+2200 LET A$(3,3) = "30-40deg C"
+2210 LET A$(3,4) = "45-55deg C"
+2220 LET C$(3) = "15-25deg C"
+2230 LET E$(3) = "Most cultivated mushrooms thrive in moderate temperatures between 15-25deg C."
 2240 REM
 2250 LET Q$(4) = "What is the ideal humidity for mushroom growing?"
 2260 LET A$(4,1) = "30-40%"
@@ -277,3 +282,4 @@
 3450 LET E$(18) = "Fresh mushrooms typically last 5-7 days when stored properly in the refrigerator."
 3460 REM
 3470 RETURN
+9999 SAVE "MushQuiz" LINE 10

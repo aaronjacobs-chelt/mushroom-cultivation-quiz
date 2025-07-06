@@ -168,3 +168,6 @@ cython_debug/
 ehthumbs.db
 Thumbs.db
 
+# Retro build tools
+retro/zmakebas/
+

@@ -34,6 +34,14 @@ A collection of vintage computer versions of the Mushroom Cultivation Quiz, brin
    - Retro Virtual Machine (Commercial)
 
 ### Loading Instructions
+
+**From TAP file (recommended):**
+```basic
+LOAD ""
+```
+*Note: The TAP file includes auto-start functionality - the program will run automatically after loading.*
+
+**From typed BASIC:**
 ```basic
 LOAD "MUSHROOM"
 RUN
@@ -170,8 +178,17 @@ This retro version pays homage to the educational software of the 1980s, when si
 
 ### File Formats
 - `.BAS`: BASIC text file for manual typing
-- `.TAP`: Cassette tape image (future release)
+- `.TAP`: Cassette tape image with auto-start functionality
 - `.TZX`: Enhanced tape format (future release)
+
+### Building TAP Files
+The TAP file is generated using zmakebas:
+```bash
+./zmakebas/zmakebas -n "MUSHROOM" -a 10 -o mushroom.tap mushroom_quiz_spectrum.bas
+```
+- `-n "MUSHROOM"`: Sets the filename visible to the Spectrum
+- `-a 10`: Auto-start from line 10 (equivalent to SAVE "MUSHROOM" LINE 10)
+- `-o mushroom.tap`: Output filename
 
 ### Documentation
 - ZX Spectrum BASIC manual
